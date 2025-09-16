@@ -7,11 +7,11 @@
   <div class="projects-grid">
     <div class="mobile-app-card" *ngFor="let project of projects">
       <div class="platform-icons">
-        <div class="icon" [ngClass]="project.platforms[0]?.class" *ngIf="project.platforms[0]">
-          <div [ngClass]="project.platforms[0]?.logoClass"></div>
+        <div class="icon" [ngClass]="project.platforms[0].class" *ngIf="project.platforms[0]">
+          <div [ngClass]="project.platforms[0].logoClass"></div>
         </div>
-        <div class="icon" [ngClass]="project.platforms[1]?.class" *ngIf="project.platforms[1]">
-          <div [ngClass]="project.platforms[1]?.logoClass"></div>
+        <div class="icon" [ngClass]="project.platforms[1].class" *ngIf="project.platforms[1]">
+          <div [ngClass]="project.platforms[1].logoClass"></div>
         </div>
       </div>
       
