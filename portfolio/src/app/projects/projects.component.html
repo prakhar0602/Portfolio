@@ -1,0 +1,31 @@
+<section class="projects">
+  <div class="section-header">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-subtitle">Innovative solutions built with cutting-edge technologies</p>
+  </div>
+  
+  <div class="projects-grid">
+    <div class="mobile-app-card" *ngFor="let project of projects">
+      <div class="platform-icons">
+        <div class="icon" [ngClass]="project.platforms[0]?.class" *ngIf="project.platforms[0]">
+          <div [ngClass]="project.platforms[0]?.logoClass"></div>
+        </div>
+        <div class="icon" [ngClass]="project.platforms[1]?.class" *ngIf="project.platforms[1]">
+          <div [ngClass]="project.platforms[1]?.logoClass"></div>
+        </div>
+      </div>
+      
+      <div class="content-blocks">
+        <div class="content-block" *ngFor="let block of [1,2,3]"></div>
+      </div>
+      
+      <h3 class="title">{{ project.title }}</h3>
+      <p class="description">{{ project.description }}</p>
+      
+      <a [href]="project.link" class="open-button">
+        <span>View Project</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>

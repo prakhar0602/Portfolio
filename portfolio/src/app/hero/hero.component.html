@@ -1,0 +1,79 @@
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-left">
+      <h1 class="greeting">Hello,</h1>
+      <p class="tagline">
+        Crafting efficient, scalable solutions<br>
+        to transform your vision into reality.
+      </p>
+      
+      <div class="roles">
+        <div class="role-item" *ngFor="let role of leftRoles; let i = index">
+          <span class="role-text">
+            <fa-icon *ngIf="role === 'Software Engineer'" [icon]="faUser" class="role-icon"></fa-icon>
+            <fa-icon *ngIf="role === 'Full Stack Developer'" [icon]="faCode" class="role-icon"></fa-icon>
+            {{ role }}
+          </span>
+          <div class="connection-container">
+            <div class="dot start"></div>
+            <svg class="line-container" viewBox="0 0 200 50">
+              <path class="connection-line" d="M8,25 L150,25 L180,10" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-center">
+      <div class="profile-image">
+        <div class="sketchfab-embed-wrapper">
+          <iframe 
+            title="Particles Tests - 3" 
+            frameborder="0" 
+            allowfullscreen 
+            mozallowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking 
+            execution-while-out-of-viewport 
+            execution-while-not-rendered 
+            web-share 
+            src="https://sketchfab.com/models/7765368dcd4f43d4a2c0e3ea42d020d2/embed?autospin=1&autostart=1&preload=1&transparent=1&ui_animations=0&ui_stop=0&ui_inspector=0&ui_watermark_link=0&ui_watermark=0&ui_hint=0&ui_ar=0&ui_help=0&ui_settings=0&ui_vr=0&ui_fullscreen=0&ui_annotations=0">
+          </iframe>
+        </div>
+      </div>
+      
+      <div class="social-stats">
+        <div class="stat-item" *ngFor="let social of socialLinks; let i = index">
+          <div class="stat-number">12</div>
+          <div class="stat-line"></div>
+          <div class="stat-label">{{ i === 0 ? 'Repositories' : i === 1 ? 'Projects' : 'Technologies Mastered' }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="name-section">
+        <h2 class="name-intro">I am</h2>
+        <h2 class="name">PRAKHAR<br>GUPTA</h2>
+      </div>
+      
+      <div class="roles">
+        <div class="role-item" *ngFor="let role of rightRoles; let i = index">
+          <span class="role-text">
+            <fa-icon *ngIf="role === 'Database Engineer'" [icon]="faDatabase" class="role-icon"></fa-icon>
+            <fa-icon *ngIf="role === 'Android App Development'" [icon]="faMobile" class="role-icon"></fa-icon>
+            {{ role }}
+          </span>
+          <div class="connection-container">
+            <div class="dot start"></div>
+            <svg class="line-container" viewBox="0 0 200 50">
+              <path class="connection-line" d="M8,25 L150,25 L180,10" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

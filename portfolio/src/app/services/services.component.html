@@ -1,0 +1,64 @@
+<section class="services">
+  <div class="features-container">
+    <div class="section-header">
+      <h2 class="section-title">Services</h2>
+      <p class="section-subtitle">Comprehensive solutions tailored to bring your digital vision to life</p>
+    </div>
+    <div class="services-layout">
+      <div class="services-left">
+        <div class="feature-card" *ngFor="let service of services.slice(0, 2); let i = index">
+          <h3 class="feature-title">
+            <div class="feature-icon">{{ service.icon }}</div>
+            {{ service.title }}
+          </h3>
+          <p class="feature-description">{{ service.description }}</p>
+
+        </div>
+      </div>
+      
+      <div class="services-center">
+        <div class="sketchfab-embed-wrapper">
+          <iframe 
+            title="Code Geass Chess" 
+            frameborder="0" 
+            allowfullscreen 
+            mozallowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            allow="autoplay; fullscreen; xr-spatial-tracking" 
+            xr-spatial-tracking 
+            execution-while-out-of-viewport 
+            execution-while-not-rendered 
+            web-share 
+            src="https://sketchfab.com/models/2ad2c93fa2d14ffdacde6895d6bafe0e/embed?autospin=1&autostart=1&camera=0&preload=1&transparent=1&ui_hint=0">
+          </iframe>
+          <div class="oval-overlay">
+            <svg class="connection-lines" viewBox="-120 0 640 550">
+              <!-- Lines to left services -->
+              <path class="connection-line" d="M100,200 L-100,150" />
+              <path class="connection-line" d="M100,350 L-100,400" />
+              <!-- Lines to right services -->
+              <path class="connection-line" d="M300,200 L500,150" />
+              <path class="connection-line" d="M300,350 L500,400" />
+              <!-- Dots at line ends -->
+              <circle class="connection-dot" cx="-100" cy="150" r="4" />
+              <circle class="connection-dot" cx="-100" cy="400" r="4" />
+              <circle class="connection-dot" cx="500" cy="150" r="4" />
+              <circle class="connection-dot" cx="500" cy="400" r="4" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+      <div class="services-right">
+        <div class="feature-card" *ngFor="let service of services.slice(2, 4); let i = index">
+          <h3 class="feature-title">
+            <div class="feature-icon">{{ service.icon }}</div>
+            {{ service.title }}
+          </h3>
+          <p class="feature-description">{{ service.description }}</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

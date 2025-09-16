@@ -1,0 +1,14 @@
+<section class="technologies">
+  <div class="section-header">
+    <h2 class="section-title">Technologies</h2>
+    <p class="section-subtitle">Tools and frameworks I work with to build exceptional digital experiences</p>
+  </div>
+  <div class="tech-container">
+    <div class="card-3d">
+      <div *ngFor="let tech of technologies; let i = index" class="tech-card-3d">
+        <img [src]="tech.iconUrl" [alt]="tech.name" class="tech-icon-3d">
+        <div class="tech-name-3d">{{ tech.name }}</div>
+      </div>
+    </div>
+  </div>
+</section>

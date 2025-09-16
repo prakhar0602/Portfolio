@@ -1,0 +1,242 @@
+.projects {
+  padding: 6rem 2rem;
+  background: #000000;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.section-title {
+  font-size: 4rem;
+  font-weight: 300;
+  color: white;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, white, transparent);
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.mobile-app-card {
+  background: rgba(42, 45, 71, 0.1);
+  border-radius: 20px;
+  padding: 40px 35px;
+  color: white;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.mobile-app-card:hover {
+  transform: translateY(-5px);
+  background: rgba(42, 45, 71, 0.25);
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.mobile-app-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.platform-icons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  align-items: flex-start;
+  height: 50px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.apple-icon {
+  background: linear-gradient(135deg, #333 0%, #555 100%);
+}
+
+.android-icon {
+  background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
+}
+
+.web-icon {
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+}
+
+.content-blocks {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-block {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  height: 28px;
+  width: 180px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.content-block::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 1px;
+}
+
+.content-block:last-child {
+  margin-bottom: 0;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-align: center;
+  letter-spacing: -0.3px;
+  color: #ffffff;
+}
+
+.description {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  margin-bottom: 25px;
+  max-width: 220px;
+}
+
+.open-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.open-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.arrow {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.open-button:hover .arrow {
+  transform: translateX(3px);
+}
+
+.apple-logo {
+  width: 20px;
+  height: 24px;
+  background: #fff;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z'/%3E%3C/svg%3E") no-repeat center;
+  mask-size: contain;
+}
+
+.android-logo {
+  width: 20px;
+  height: 24px;
+  background: #fff;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M17.6 9.48l1.84-3.18c.16-.31.04-.7-.26-.87-.29-.16-.7-.04-.87.26l-1.88 3.24a11.95 11.95 0 0 0-8.86 0L5.69 5.69c-.16-.3-.57-.42-.87-.26-.3.16-.42.56-.26.87L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z'/%3E%3C/svg%3E") no-repeat center;
+  mask-size: contain;
+}
+
+.web-logo {
+  width: 20px;
+  height: 24px;
+  background: #fff;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'/%3E%3C/svg%3E") no-repeat center;
+  mask-size: contain;
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .mobile-app-card {
+    padding: 30px 25px;
+  }
+  
+  .section-title {
+    font-size: 3rem;
+  }
+}
