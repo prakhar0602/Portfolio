@@ -10,30 +10,21 @@ import { CommonModule } from '@angular/common';
 export class ProjectsComponent {
   projects = [
     {
-      title: 'E-Commerce App',
-      description: 'Full-stack mobile application with payment integration, user authentication, and real-time inventory management.',
-      link: '#',
-      platforms: [
-        { class: 'apple-icon', logoClass: 'apple-logo' },
-        { class: 'android-icon', logoClass: 'android-logo' }
-      ]
-    },
-    {
-      title: 'Task Manager',
-      description: 'Productivity app with team collaboration features, deadline tracking, and progress analytics.',
-      link: '#',
+      title: 'EShoppingZone',
+      description: 'ECommerce Website with modern design, secure payment integration, and comprehensive product management system.',
+      link: '/project/eshoppingzone',
       platforms: [
         { class: 'web-icon', logoClass: 'web-logo' },
         { class: 'android-icon', logoClass: 'android-logo' }
       ]
     },
     {
-      title: 'Fitness Tracker',
-      description: 'Health monitoring application with workout plans, nutrition tracking, and social features.',
-      link: '#',
+      title: 'AniStream',
+      description: 'Anime Streaming Website with AI Recommendation system for personalized content discovery and seamless viewing experience.',
+      link: '/project/anistream',
       platforms: [
-        { class: 'apple-icon', logoClass: 'apple-logo' },
-        { class: 'web-icon', logoClass: 'web-logo' }
+        { class: 'web-icon', logoClass: 'web-logo' },
+        { class: 'apple-icon', logoClass: 'apple-logo' }
       ]
     }
   ];

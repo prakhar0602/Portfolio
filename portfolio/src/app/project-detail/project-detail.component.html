@@ -1,0 +1,116 @@
+<div class="project-detail">
+  <nav class="breadcrumb">
+    <button (click)="goBack()" class="back-btn">← Back to Projects</button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="project-title">{{ project.title }}</h1>
+      <p class="project-subtitle">{{ project.subtitle }}</p>
+      <div class="hero-actions">
+        <a [href]="project.liveDemo" class="btn btn-primary">Live Demo</a>
+        <a [href]="project.github" class="btn btn-secondary">GitHub</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img *ngIf="project.heroImage" [src]="project.heroImage" [alt]="project.title + ' Screenshot'" class="project-screenshot">
+      <div *ngIf="!project.heroImage" class="image-placeholder">Project Screenshot</div>
+    </div>
+    <div class="quick-stats">
+      <div class="stat-item">
+        <span class="stat-label">Role</span>
+        <span class="stat-value">{{ project.role }}</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Timeline</span>
+        <span class="stat-value">{{ project.timeline }}</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Team</span>
+        <span class="stat-value">{{ project.team }}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section overview">
+    <h2 class="section-title">Project Overview</h2>
+    <p class="overview-text">{{ project.description }}</p>
+  </section>
+
+  <section class="section features">
+    <h2 class="section-title">Key Features</h2>
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of project.features">
+        <h3 class="feature-title">{{ feature.title }}</h3>
+        <p class="feature-description">{{ feature.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tech-stack">
+    <h2 class="section-title">Technical Architecture</h2>
+    <div class="tech-grid">
+      <div class="tech-item" *ngFor="let tech of project.techStack">
+        <img *ngIf="tech.iconUrl" [src]="tech.iconUrl" [alt]="tech.name" class="tech-icon-img">
+        <span *ngIf="tech.icon" class="tech-icon">{{ tech.icon }}</span>
+        <span class="tech-name">{{ tech.name }}</span>
+      </div>
+    </div>
+    <div class="architecture-diagram">
+      <app-architecture-diagram></app-architecture-diagram>
+    </div>
+  </section>
+
+  <section class="section showcase">
+    <h2 class="section-title">Visual Showcase</h2>
+    <div class="page-selector">
+      <label for="pageSelect">Select Page:</label>
+      <select id="pageSelect" (change)="onPageChange($event)" class="page-dropdown">
+        <option value="LandingPage">Landing Page</option>
+        <option value="LoginPage">Login Page</option>
+        <option value="RegisterPage">Register Page</option>
+        <option value="HomePage">Home Page</option>
+        <option value="CartPage">Cart Page</option>
+        <option value="OrderHistoryPage">Order History Page</option>
+        <option value="ProfilePage">Profile Page</option>
+      </select>
+    </div>
+    <div class="screenshot-gallery">
+      <div class="screenshot-container">
+        <h3 class="view-title">Desktop View</h3>
+        <div class="screenshot desktop">
+          <img [src]="getDesktopImage()" [alt]="selectedPage + ' Desktop View'" class="screenshot-img">
+        </div>
+      </div>
+      <div class="screenshot-container">
+        <h3 class="view-title">Mobile View</h3>
+        <div class="screenshot mobile">
+          <img [src]="getMobileImage()" [alt]="selectedPage + ' Mobile View'" class="screenshot-img">
+        </div>
+      </div>
+    </div>
+    <div class="code-snippet">
+      <h3>Code Sample</h3>
+      <pre><code>const getRecommendations = async (userId, preferences) => {{ '{' }}
+  const userProfile = await getUserProfile(userId);
+  const recommendations = await ml.predict({{ '{' }}
+    user: userProfile,
+    preferences,
+    context: getCurrentContext()
+  {{ '}' }});
+  return recommendations.filter(item => item.confidence > 0.8);
+{{ '}' }};</code></pre>
+    </div>
+  </section>
+
+  <section class="section results">
+    <h2 class="section-title">Results & Impact</h2>
+    <div class="metrics-grid">
+      <div class="metric-card" *ngFor="let metric of project.metrics">
+        <div class="metric-value">{{ metric.value }}</div>
+        <div class="metric-label">{{ metric.label }}</div>
+      </div>
+    </div>
+  </section>
+
+</div>

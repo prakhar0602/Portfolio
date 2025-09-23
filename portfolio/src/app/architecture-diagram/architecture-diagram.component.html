@@ -1,0 +1,178 @@
+<div class="architecture-container">
+  
+  <!-- Flow Status Header -->
+  <div class="flow-status">
+    <div class="status-indicator">
+      <div class="pulse-dot"></div>
+      <span class="status-text">{{ getCurrentFlow().label }}</span>
+    </div>
+    <div class="architecture-title">EShoppingZone System Architecture</div>
+  </div>
+  
+  <!-- Mode Buttons -->
+  <div class="mode-buttons">
+    <button 
+      class="mode-btn" 
+      [class.active]="currentMode === 'all'"
+      (click)="setMode('all')">
+      All
+    </button>
+    <button 
+      class="mode-btn" 
+      [class.active]="currentMode === 'login'"
+      (click)="setMode('login')">
+      Login
+    </button>
+    <button 
+      class="mode-btn" 
+      [class.active]="currentMode === 'service'"
+      (click)="setMode('service')">
+      Service
+    </button>
+    <button 
+      class="mode-btn" 
+      [class.active]="currentMode === 'payment'"
+      (click)="setMode('payment')">
+      Payment
+    </button>
+  </div>
+  <!-- Main Architecture Diagram -->
+  <div class="diagram-wrapper" [class.login-mode]="currentMode === 'login'" [class.service-mode]="currentMode === 'service'" [class.payment-mode]="currentMode === 'payment'">
+    
+    <!-- All Components -->
+    <div class="components-container">
+      <!-- Left Column -->
+      <div class="left-column">
+        <div class="component web-client" [class.active]="isComponentActive('web-client')">
+          <div *ngIf="currentMode === 'login' && isLoginConnectionActive('web-to-api') && getLoginDirection() === 'forward'" 
+               class="login-message-web">Login Request</div>
+          <div *ngIf="currentMode === 'login' && isLoginConnectionActive('web-to-api') && getLoginDirection() === 'reverse'" 
+               class="login-message-web">Login Successful</div>
+          <div class="component-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20 3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h3l-1 1v2h12v-2l-1-1h3c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H4V5h16v11z"/>
+            </svg>
+          </div>
+          <div class="component-label">Web Client</div>
+          <div class="component-tech">Angular + TypeScript</div>
+          <div class="component-details">
+            <div class="detail-item">• Product Catalog</div>
+            <div class="detail-item">• Shopping Cart</div>
+            <div class="detail-item">• User Dashboard</div>
+            <div class="detail-item">• Checkout Flow</div>
+          </div>
+        </div>
+
+        <div class="component payment-gateway" [class.active]="isComponentActive('payment-gateway')">
+          <div class="component-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+          </div>
+          <div class="component-label">Payment Gateway</div>
+          <div class="component-tech">Stripe Integration</div>
+          <div class="payment-features">
+            <div class="payment-item">Card Processing</div>
+            <div class="payment-item">Webhooks</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Column -->
+      <div class="center-column">
+        <div class="component api-gateway" [class.active]="isComponentActive('api-gateway')">
+          <div *ngIf="currentMode === 'login' && isLoginConnectionActive('api-to-auth') && getLoginDirection() === 'forward'" 
+               class="login-message-api">Authenticate Request</div>
+          <div *ngIf="currentMode === 'login' && isLoginConnectionActive('api-to-auth') && getLoginDirection() === 'reverse'" 
+               class="login-message-api">Authentication Successful</div>
+          <div class="component-icon gateway-icon">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <div class="component-label">API Gateway</div>
+          <div class="component-tech">FastAPI + Uvicorn</div>
+          <div class="gateway-features">
+            <div class="feature-box">
+              <div class="feature-title">Authentication</div>
+              <div class="feature-desc">JWT token validation</div>
+            </div>
+            <div class="feature-box">
+              <div class="feature-title">Product APIs</div>
+              <div class="feature-desc">CRUD operations</div>
+            </div>
+            <div class="feature-box">
+              <div class="feature-title">Order Management</div>
+              <div class="feature-desc">Cart & checkout</div>
+            </div>
+            <div class="feature-box">
+              <div class="feature-title">Payment Processing</div>
+              <div class="feature-desc">Secure transactions</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="component auth-service" [class.active]="isComponentActive('auth-service')">
+          <div *ngIf="currentMode === 'login' && isLoginConnectionActive('auth-to-db') && getLoginDirection() === 'forward'" 
+               class="login-message-auth">Validating Credentials</div>
+          <div *ngIf="currentMode === 'login' && isLoginConnectionActive('auth-to-db') && getLoginDirection() === 'reverse'" 
+               class="login-message-auth">Credentials Matched</div>
+          <div class="component-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+            </svg>
+          </div>
+          <div class="component-label">Authentication Service</div>
+          <div class="component-tech">JWT + OAuth2</div>
+          <div class="service-endpoints">
+            <div class="endpoint">/auth/login</div>
+            <div class="endpoint">/auth/register</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="right-column">
+        <div class="component services" [class.active]="isComponentActive('services')">
+          <div class="services-to-db-line" 
+               [style.display]="shouldShowConnection('services-to-db') ? 'block' : 'none'"
+               [class.login-active]="isLoginConnectionActive('services-to-db')"
+               [class.reverse]="getLoginDirection() === 'reverse'">
+          </div>
+          <div class="component-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <div class="component-label">Services</div>
+          <div class="component-tech">Microservices Architecture</div>
+          <div class="services-list">
+            <div class="service-item">Product Service</div>
+            <div class="service-item">Order Service</div>
+            <div class="service-item">User Service</div>
+            <div class="service-item">Inventory Service</div>
+          </div>
+        </div>
+
+        <div class="component database" [class.active]="isComponentActive('database')">
+
+          <div class="component-icon">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4zM4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4zM4 14v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4z"/>
+            </svg>
+          </div>
+          <div class="component-label">PostgreSQL Database</div>
+          <div class="component-tech">Primary Data Store</div>
+          <div class="database-tables">
+            <div class="table-item">Users</div>
+            <div class="table-item">Products</div>
+            <div class="table-item">Orders</div>
+            <div class="table-item">Payments</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
