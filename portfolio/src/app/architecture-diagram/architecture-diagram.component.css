@@ -1,3 +1,546 @@
+.architecture-container {
+  width: 100%;
+  min-height: 700px;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(0, 255, 136, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 136, 255, 0.05) 0%, transparent 50%),
+    linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  border-radius: 24px;
+  border: 2px solid #333333;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.flow-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  border-radius: 16px;
+  border: 1px solid #333333;
+  backdrop-filter: blur(20px);
+}
+
+.mode-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.mode-btn {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  border: 2px solid #333333;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mode-btn:hover {
+  border-color: #00ff88;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+.mode-btn.active {
+  background: linear-gradient(135deg, #1a2a1a, #2a3a2a);
+  border-color: #00ff88;
+  color: #00ff88;
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pulse-dot {
+  width: 12px;
+  height: 12px;
+  background: #00ff88;
+  border-radius: 50%;
+  animation: pulse-animation 2s infinite;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.status-text {
+  color: #00ff88;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+.architecture-title {
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff, #cccccc, #00ff88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.diagram-wrapper {
+  padding: 2rem;
+  background: 
+    linear-gradient(90deg, transparent 0%, rgba(0, 255, 136, 0.02) 50%, transparent 100%),
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.components-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8rem;
+  position: relative;
+}
+
+.left-column,
+.center-column,
+.right-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.5rem;
+  position: relative;
+}
+
+
+
+
+
+.right-column {
+  transform: translateX(0);
+}
+
+.web-client,
+.payment-gateway,
+.product-service,
+.database {
+  width: 75%;
+}
+
+/* Component Base Styling */
+.component {
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a, #1a1a1a);
+  border: 2px solid #333333;
+  border-radius: 16px;
+  padding: 0.75rem;
+  width: 100%;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.web-client,
+.payment-gateway,
+.product-service,
+.database {
+  width: 75%;
+}
+
+.payment-gateway {
+  overflow: hidden;
+  z-index: 100;
+  position: relative;
+}
+
+.database {
+  margin-left: auto;
+}
+
+.services {
+}
+
+
+
+.component-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: #cccccc;
+  transition: all 0.4s ease;
+}
+
+
+
+.gateway-icon {
+  color: #00ff88 !important;
+  transform: scale(1.2);
+}
+
+.component-label {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.component-tech {
+  color: #888888;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.component-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.detail-item {
+  color: #cccccc;
+  font-size: 0.8rem;
+  padding-left: 0.5rem;
+  border-left: 2px solid #333333;
+  transition: all 0.3s ease;
+}
+
+
+
+/* API Gateway Special Styling */
+.api-gateway {
+  background: linear-gradient(135deg, #1a2a1a, #2a3a2a, #1a2a1a);
+  border-color: #00ff88;
+  position: relative;
+  z-index: 10;
+}
+
+.gateway-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.feature-box {
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+.feature-title {
+  color: #00ff88;
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.feature-desc {
+  color: #cccccc;
+  font-size: 0.7rem;
+}
+
+.auth-service {
+  z-index: 65;
+  padding: 0.5rem;
+  min-height: auto;
+  position: relative;
+  z-index: 5;
+}
+
+/* Service Endpoints */
+.service-endpoints {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.endpoint {
+  background: rgba(0, 136, 255, 0.1);
+  border: 1px solid rgba(0, 136, 255, 0.3);
+  border-radius: 6px;
+  padding: 0.5rem;
+  color: #88ccff;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* Database Tables */
+.database-tables {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.table-item {
+  background: rgba(255, 136, 0, 0.1);
+  border: 1px solid rgba(255, 136, 0, 0.3);
+  border-radius: 6px;
+  padding: 0.5rem;
+  color: #ffaa44;
+  font-size: 0.75rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Payment Features */
+.payment-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.payment-item {
+  background: rgba(136, 0, 255, 0.1);
+  border: 1px solid rgba(136, 0, 255, 0.3);
+  border-radius: 6px;
+  padding: 0.5rem;
+  color: #aa88ff;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* Services List */
+.services-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.service-item {
+  background: rgba(0, 136, 255, 0.1);
+  border: 1px solid rgba(0, 136, 255, 0.3);
+  border-radius: 6px;
+  padding: 0.5rem;
+  color: #88ccff;
+  font-size: 0.75rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+
+
+
+
+/* Web Client Connection Lines */
+.web-client::after {
+  content: '';
+  position: absolute;
+  width: 15rem;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, #ffffff 0px, #ffffff 10px, transparent 10px, transparent 20px);
+  background-size: 20px 2px;
+  right: -15rem;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: flow-horizontal 10s linear infinite;
+}
+
+.login-mode .web-client::after.login-active {
+  opacity: 1 !important;
+  animation: login-flow-horizontal 1s linear infinite !important;
+}
+
+.login-mode .web-client::after.login-active.reverse {
+  animation: login-flow-horizontal-reverse 1s linear infinite !important;
+}
+
+.web-to-api-line {
+  position: absolute;
+  width: 15rem;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, #00ff88 0px, #00ff88 10px, transparent 10px, transparent 20px);
+  background-size: 20px 2px;
+  right: -15rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.web-to-api-line.login-active {
+  opacity: 1;
+  animation: login-flow-horizontal 1s linear infinite;
+}
+
+.web-to-api-line.login-active.reverse {
+  animation: login-flow-horizontal-reverse 1s linear infinite;
+}
+
+.api-to-auth-line {
+  position: absolute;
+  width: 2px;
+  height: 8rem;
+  background: repeating-linear-gradient(180deg, #00ff88 0px, #00ff88 10px, transparent 10px, transparent 20px);
+  background-size: 2px 20px;
+  left: 50%;
+  bottom: -8rem;
+  z-index: -10;
+  opacity: 0.3;
+}
+
+.api-to-auth-line.login-active {
+  opacity: 1;
+  animation: login-flow-vertical 1s linear infinite;
+}
+
+.api-to-auth-line.login-active.reverse {
+  animation: login-flow-vertical-reverse 1s linear infinite;
+}
+
+.auth-to-db-line {
+  position: absolute;
+  width: 13rem;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, #00ff88 0px, #00ff88 10px, transparent 10px, transparent 20px);
+  background-size: 20px 2px;
+  right: -13rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.auth-to-db-line.login-active {
+  opacity: 1;
+  animation: login-flow-horizontal 1s linear infinite;
+}
+
+.auth-to-db-line.login-active.reverse {
+  animation: login-flow-horizontal-reverse 1s linear infinite;
+}
+
+
+
+
+
+@keyframes login-flow-horizontal-reverse {
+  0% {
+    background-position: 20px 0px;
+  }
+  100% {
+    background-position: 0px 0px;
+  }
+}
+
+@keyframes login-flow-vertical-reverse {
+  0% {
+    background-position: 0px 20px;
+  }
+  100% {
+    background-position: 0px 0px;
+  }
+}
+
+.line-message {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.9);
+  color: #00ff88;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid #00ff88;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  20%, 80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.login-message-web {
+  position: absolute;
+  top: 50%;
+  right: -7.5rem;
+  transform: translateY(-150%) translateX(50%);
+  background: rgba(0,0,0,0.9);
+  color: #00ff88;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  border: 1px solid #00ff88;
+  animation: fadeInOut 2s ease-in-out;
+}
+
+.login-message-api {
+  position: absolute;
+  top: 100%;
+  margin-top: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.9);
+  color: #00ff88;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  border: 1px solid #00ff88;
+  animation: fadeInOut 2s ease-in-out;
+}
+
+.login-message-auth {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-left: 6.5rem;
+  transform: translateY(-50%) translateX(-50%);
+  background: rgba(0,0,0,0.9);
+  color: #00ff88;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  border: 1px solid #00ff88;
+  white-space: nowrap;
+  animation: fadeInOut 2s ease-in-out;
+}
+
+.line-message.vertical {
+  top: 0.2rem;
+  left: -80px;
+  transform: translateX(-50%);
+}
+
+
+
+@keyframes login-flow-horizontal {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 20px 0px;
+  }
+}
+
+@keyframes login-flow-vertical {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 0px 20px;
+  }
+}
 
 
 .login-mode .web-client::after {

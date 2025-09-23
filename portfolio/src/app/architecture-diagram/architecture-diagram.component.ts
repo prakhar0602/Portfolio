@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-architecture-diagram',
   imports: [CommonModule],
   templateUrl: './architecture-diagram.component.html',
-  styleUrls: ['./architecture-diagram2.component.css','./architecture-diagram.component.css']
+  styleUrl: './architecture-diagram.component.css'
 })
 export class ArchitectureDiagramComponent implements OnInit, OnDestroy, AfterViewInit {
   currentFlow = 0;
